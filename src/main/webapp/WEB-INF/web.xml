@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+  <display-name>Resourcium Optima II</display-name>
+  <default-context-path>/ResourciumOptima</default-context-path>
+
+  <welcome-file-list>
+    <welcome-file>WEB-UI\index.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
