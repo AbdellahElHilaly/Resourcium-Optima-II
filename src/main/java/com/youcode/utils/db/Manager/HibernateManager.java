@@ -1,5 +1,6 @@
 package com.youcode.utils.db.Manager;
 
+import com.youcode.libs.print.Printer;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -11,7 +12,9 @@ public class HibernateManager {
     private static EntityTransaction transaction;
 
     public static void start(){
+        Printer.warning("Starting HibernateManager");
         entityManagerFactory = Persistence.createEntityManagerFactory("hibernate-unit");
+        Printer.success("HibernateManager started");
     }
 
     public static EntityManager getEntityManager() {

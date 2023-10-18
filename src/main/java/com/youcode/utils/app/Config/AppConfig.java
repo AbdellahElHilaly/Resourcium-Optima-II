@@ -1,8 +1,6 @@
 package com.youcode.utils.app.Config;
 
 
-import com.youcode.app.ui.helper.PalletGrouper;
-import com.youcode.app.ui.guide.Pallet;
 import com.youcode.libs.print.Emojis;
 import com.youcode.utils.app.Enum.RunMoods;
 

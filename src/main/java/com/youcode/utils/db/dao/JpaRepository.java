@@ -53,7 +53,7 @@ public interface JpaRepository<T> {
         }
     }
 
-    public default T getById(Long id) {
+    public default T findById(Long id) {
         HibernateManager.openAll();
         try {
             return entityManager.find(getEntityClass(), id);
@@ -63,7 +63,7 @@ public interface JpaRepository<T> {
     }
 
 
-    public default List<T> getAll() {
+    public default List<T> selectAll() {
         HibernateManager.openAll();
         try {
             return entityManager.createQuery("SELECT e FROM " + getEntityName() + " e", getEntityClass()).getResultList();
@@ -71,6 +71,5 @@ public interface JpaRepository<T> {
             HibernateManager.closeAll();
         }
     }
-
 
 }
