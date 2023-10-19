@@ -13,7 +13,9 @@ public class HibernateManager {
 
     public static void start(){
         Printer.warning("Starting HibernateManager");
+
         entityManagerFactory = Persistence.createEntityManagerFactory("hibernate-unit");
+
         Printer.success("HibernateManager started");
     }
 
@@ -31,10 +33,24 @@ public class HibernateManager {
         return entityManagerFactory;
     }
 
+
     public static void openAll() {
         openEntityManager();
         openTransaction();
     }
+
+    public static void closeAll(){
+        closeEntityManager();
+        closeTransaction();
+    }
+
+
+
+
+
+
+
+
     private static void openTransaction() {
         transaction = entityManager.getTransaction();
         if (!transaction.isActive()) {
@@ -44,11 +60,6 @@ public class HibernateManager {
 
     private static void openEntityManager() {
         entityManager = getEntityManager();
-    }
-
-    public static void closeAll(){
-        closeEntityManager();
-        closeTransaction();
     }
 
     private static void closeTransaction() {
@@ -62,7 +73,5 @@ public class HibernateManager {
             entityManager.close();
         }
     }
-
-
 
 }

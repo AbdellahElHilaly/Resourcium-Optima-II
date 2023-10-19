@@ -28,22 +28,22 @@ public class RouteServlet extends HttpServlet {
 
         switch (route) {
             case "home":
-                jspPage = "/WEB-UI/index.jsp";
+                jspPage = "/view/index.jsp";
                 break;
             case "dashboard":
-                jspPage = "/WEB-UI/pages/dashboard.jsp";
+                jspPage = "/view/pages/dashboard.jsp";
                 break;
             case "login":
-                jspPage = "/WEB-UI/pages/login.jsp";
+                jspPage = "/view/pages/login.jsp";
                 break;
             case "register":
-                jspPage = "/WEB-UI/pages/register.jsp";
+                jspPage = "/view/pages/register.jsp";
                 break;
             case "profile":
-                jspPage = "/WEB-UI/pages/profile.jsp";
+                jspPage = "/view/pages/profile.jsp";
                 break;
             default:
-                jspPage = "/WEB-UI/pages/404.jsp";
+                jspPage = "/view/pages/404.jsp";
                 break;
         }
         req.getRequestDispatcher(jspPage).forward(req, resp);

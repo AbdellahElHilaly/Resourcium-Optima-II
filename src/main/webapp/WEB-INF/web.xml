@@ -7,7 +7,7 @@
   <default-context-path>/ResourciumOptima</default-context-path>
 
   <welcome-file-list>
-    <welcome-file>WEB-UI\index.jsp</welcome-file>
+    <welcome-file>view\index.jsp</welcome-file>
   </welcome-file-list>
 
 

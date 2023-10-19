@@ -1,13 +1,8 @@
-<jsp:include page="/WEB-UI/layout/head.jsp" />
+<!-- pages/register.jsp -->
+<jsp:include page="/view/layout/head.jsp" />
 
-<div class="container">
-    <h2>Authentication</h2>
+<jsp:include page="/view/layout/nav.jsp" />
 
-    <div class="card mt-4">
-        <div class="card-body">
-            <jsp:include page="/WEB-UI/components/user/register.jsp" />
-        </div>
-    </div>
-</div>
+<jsp:include page="/view/components/user/register.jsp" />
 
-<jsp:include page="/WEB-UI/layout/footer.jsp" />
+<jsp:include page="/view/layout/footer.jsp" />

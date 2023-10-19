@@ -1,7 +1,8 @@
 package com.youcode.app.http.loader;
 
-import com.youcode.app.root.EnumsInitializer;
-import com.youcode.libs.print.Printer;
+import com.youcode.app.root.DatabaseInitialization;
+import com.youcode.utils.app.Config.AppConfig;
+import com.youcode.utils.app.Enum.RunMoods;
 import com.youcode.utils.db.Manager.HibernateManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
@@ -17,21 +18,25 @@ import jakarta.servlet.http.HttpServlet;
         loadOnStartup = 1
 )
 public class OnLoadServlet extends HttpServlet {
+
     @Override
     public void init() throws ServletException {
         super.init();
         startHibernate();
-        initEnums();
+        if (AppConfig.RUN_MOOD == RunMoods.Development) {
+            initEnums();
+        }
+
     }
 
     private void initEnums() {
-        EnumsInitializer enumsInitializer = new EnumsInitializer();
-        enumsInitializer.init();
-        enumsInitializer = null;
+        DatabaseInitialization databaseInitialization = new DatabaseInitialization();
+        databaseInitialization.init();
+        databaseInitialization = null;
     }
 
 
     private void startHibernate() {
-        HibernateManager.start();
+        HibernateManager.openAll();
     }
 }

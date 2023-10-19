@@ -1,4 +1,5 @@
-<jsp:include page="/WEB-UI/layout/head.jsp" />
+<jsp:include page="/view/layout/head.jsp" />
+  <jsp:include page="/view/layout/nav.jsp" />
 <h1/>Dashboard</h1>
 <%
 out.println("java code here");
@@ -11,4 +12,4 @@ else out.println("a < b");
 
 %>
 
-<jsp:include page="/WEB-UI/layout/footer.jsp" />
+<jsp:include page="/view/layout/footer.jsp" />
