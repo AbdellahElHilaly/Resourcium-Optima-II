@@ -27,6 +27,7 @@
                       type="email"
                       id="form2Example11"
                       class="form-control"
+                      name="email"
                       placeholder="Phone number or email address"
                     />
                     <label class="form-label" for="form2Example11"
@@ -39,11 +40,13 @@
                       type="password"
                       id="form2Example22"
                       class="form-control"
+                      name="password"
                     />
                     <label class="form-label" for="form2Example22"
                       >Password</label
                     >
                   </div>
+                  <!-- Rest of your form fields -->
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button

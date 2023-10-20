@@ -30,5 +30,22 @@ class EmployeeServiceImplTest {
 
     @Test
     void login() {
+        EmployeeService employeeService = new EmployeeServiceImpl();
+        Employee employee = new EmployeeBuilder("admin@gmail.com","123456789")
+                .build();
+
+        ObjectPrinter.table(employeeService.selectByEmployeeEmail(employee), "employee logged in");
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

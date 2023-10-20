@@ -28,11 +28,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee login(Employee employee) {
+    public Employee selectByEmployeeEmail(Employee employee) {
 
         Map<String, Object> loginMap = Map.of(
-                "email", employee.getEmail(),
-                "password", employee.getPassword()
+                "email", employee.getEmail()
         );
 
         return employeeRepository.findBy(loginMap);

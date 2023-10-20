@@ -42,6 +42,15 @@ public class RouteServlet extends HttpServlet {
             case "profile":
                 jspPage = "/view/pages/profile.jsp";
                 break;
+            case "200":
+                jspPage = "/view/pages/200.jsp";
+                break;
+            case "500":
+                jspPage = "/view/pages/500.jsp";
+                break;
+            case "waiting":
+                jspPage = "/view/pages/waiting.jsp";
+                break;
             default:
                 jspPage = "/view/pages/404.jsp";
                 break;

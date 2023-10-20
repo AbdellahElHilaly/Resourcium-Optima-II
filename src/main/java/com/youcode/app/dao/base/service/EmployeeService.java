@@ -8,7 +8,7 @@ public interface EmployeeService {
 
 
     public  Employee register(Employee employee);
-    public Employee login(Employee employee);
+    public Employee selectByEmployeeEmail(Employee employee);
 
 
 }

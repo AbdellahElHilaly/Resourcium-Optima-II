@@ -1,3 +1,5 @@
+<%@ page import="com.youcode.app.helper.ViewHelper" %>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- Container wrapper -->
@@ -67,11 +69,12 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false"
         >
+          <% String avatarPath = ViewHelper.getAvatarPath(request); %>
           <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            src="<%= avatarPath %>"
             class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
+            height="22"
+            alt=""
             loading="lazy"
           />
         </a>

@@ -1,4 +1,3 @@
-<!-- pages/register.jsp -->
 <jsp:include page="/view/layout/head.jsp" />
 
 <jsp:include page="/view/layout/nav.jsp" />
