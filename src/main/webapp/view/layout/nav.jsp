@@ -20,13 +20,20 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="Router?page=home">
+      <a
+        class="navbar-brand mt-2 mt-lg-0 position-relative"
+        href="Router?page=home"
+      >
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="15"
-          alt="MDB Logo"
+          class="position-absolute top-50 start-0 translate-middle-y"
+          src="https://cdn.pixabay.com/photo/2022/04/10/05/36/bird-7122682_960_720.png"
+          height="30"
+          alt="Logo"
           loading="lazy"
         />
+        <div style="margin-left: 50px">
+          <span class="fw-bold">You</span><span class="text-danger">Code</span>
+        </div>
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
