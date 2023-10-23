@@ -4,9 +4,10 @@ import com.youcode.app.dao.enums.Entity.EquipmentHealth;
 import com.youcode.app.dao.enums.Entity.EquipmentStatus;
 import com.youcode.app.dao.enums.Entity.EquipmentWokPlace;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
-
+@Data
 @Entity
 public class Equipment {
     @Id

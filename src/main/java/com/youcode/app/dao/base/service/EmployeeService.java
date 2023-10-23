@@ -9,6 +9,7 @@ public interface EmployeeService {
 
     public  Employee register(Employee employee);
     public Employee selectByEmployeeEmail(Employee employee);
+    public Employee updateProfile(Employee employee);
 
 
 }

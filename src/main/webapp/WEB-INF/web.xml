@@ -10,12 +10,17 @@
     <welcome-file>view\index.jsp</welcome-file>
   </welcome-file-list>
 
-
   <jsp-config>
     <taglib>
       <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
       <taglib-location>/WEB-INF/lib/jstl.jar</taglib-location>
     </taglib>
   </jsp-config>
+
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/view/pages/404.jsp</location>
+  </error-page>
 
 </web-app>

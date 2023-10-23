@@ -32,7 +32,23 @@ public class EmployeeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ViewHelper.goToHome(req, resp);
+        handelGetRequest(req, resp);
+    }
+
+    private void handelGetRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        String pageParam = (req.getParameter("action") != null) ? req.getParameter("action") : "404";
+
+        String route = AppHelper.toCamelCase(pageParam);
+
+        if(route.equals("logout")) {
+            logout(req, resp);
+        }else {
+            ViewHelper.goToHome(req, resp);
+        }
+
+
+
     }
 
     @Override
@@ -44,9 +60,6 @@ public class EmployeeController extends HttpServlet {
                 break;
             case "login":
                 login(req, resp);
-                break;
-            case "logout":
-                logout(req, resp);
                 break;
             case "update":
                 update(req, resp);
@@ -103,6 +116,8 @@ public class EmployeeController extends HttpServlet {
     private void update(HttpServletRequest req, HttpServletResponse resp) {
     }
 
-    private void logout(HttpServletRequest req, HttpServletResponse resp) {
+    private void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        SecurityHelper.logout(req);
+        ViewHelper.gotoSuccessPage(req, resp, "Logged out successfully.", "login");
     }
 }

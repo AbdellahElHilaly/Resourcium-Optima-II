@@ -1,62 +1,48 @@
 package com.youcode.app.http.routing;
 
 import com.youcode.app.helper.AppHelper;
-import com.youcode.libs.print.Printer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet(name = "RouteServlet", urlPatterns = {"/Router"})
 public class RouteServlet extends HttpServlet {
+    private static final String NOT_FOUNT_PAGE = "404";
+    private Map<String, String> pageMappings;
+
+    @Override
+    public void init() {
+        pageMappings = new HashMap<>();
+        pageMappings.put("home", "/view/index.jsp");
+        pageMappings.put("dashboard", "/view/pages/dashboard.jsp");
+        pageMappings.put("login", "/view/pages/login.jsp");
+        pageMappings.put("register", "/view/pages/register.jsp");
+        pageMappings.put("profile", "/view/pages/profile.jsp");
+        pageMappings.put("200", "/view/pages/200.jsp");
+        pageMappings.put("500", "/view/pages/500.jsp");
+        pageMappings.put("waiting", "/view/pages/waiting.jsp");
+        pageMappings.put("404", "/view/pages/404.jsp");
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         gotoRoute(req, resp);
     }
 
     private void gotoRoute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String pageParam = req.getParameter("page");
-        if (pageParam == null) {
-            pageParam = "home";
-        }
+
+        String pageParam = (req.getParameter("page") != null) ? req.getParameter("page") : "404";
 
         String route = AppHelper.toCamelCase(pageParam);
-        String jspPage;
 
-        switch (route) {
-            case "home":
-                jspPage = "/view/index.jsp";
-                break;
-            case "dashboard":
-                jspPage = "/view/pages/dashboard.jsp";
-                break;
-            case "login":
-                jspPage = "/view/pages/login.jsp";
-                break;
-            case "register":
-                jspPage = "/view/pages/register.jsp";
-                break;
-            case "profile":
-                jspPage = "/view/pages/profile.jsp";
-                break;
-            case "200":
-                jspPage = "/view/pages/200.jsp";
-                break;
-            case "500":
-                jspPage = "/view/pages/500.jsp";
-                break;
-            case "waiting":
-                jspPage = "/view/pages/waiting.jsp";
-                break;
-            default:
-                jspPage = "/view/pages/404.jsp";
-                break;
-        }
+        String jspPage = pageMappings.getOrDefault(route, pageMappings.get(NOT_FOUNT_PAGE));
+
         req.getRequestDispatcher(jspPage).forward(req, resp);
+
     }
-
-
 }

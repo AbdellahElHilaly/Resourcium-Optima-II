@@ -37,4 +37,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findBy(loginMap);
     }
 
+    @Override
+    public Employee updateProfile(Employee employee) {
+        return employeeRepository.update(employee);
+    }
+
 }

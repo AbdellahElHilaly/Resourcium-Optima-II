@@ -1,7 +1,7 @@
 <%@ page import="com.youcode.app.helper.ViewHelper" %>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -98,7 +98,7 @@
             >
           </li>
           <li>
-            <a class="dropdown-item" href="Router?page=logout">Logout</a>
+            <a class="dropdown-item" href="Employee?action=logout">Logout</a>
           </li>
         </ul>
       </div>
@@ -107,4 +107,7 @@
   </div>
   <!-- Container wrapper -->
 </nav>
+
+<div style="height: 55px"></div>
+
 <!-- Navbar -->

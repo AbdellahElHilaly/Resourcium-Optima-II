@@ -17,11 +17,17 @@ public class SecurityHelper {
     public static void sessionLogin(HttpServletRequest req, Employee logInEmployee) {
         req.getSession().setAttribute(" logInEmployee", logInEmployee);
     }
+
     public static Employee getSessionEmployee(HttpServletRequest req) {
         return (Employee) req.getSession().getAttribute(" logInEmployee");
     }
 
+    public static boolean isEmployeeLoggedIn(HttpServletRequest req) {
+        return req.getSession().getAttribute(" logInEmployee") != null;
+    }
 
 
-
+    public static void logout(HttpServletRequest req) {
+        req.getSession().removeAttribute(" logInEmployee");
+    }
 }

@@ -1,11 +1,13 @@
 package com.youcode.utils.db.dao;
 
+import com.youcode.exception.handler.ExceptionHandler;
 import com.youcode.libs.print.Printer;
 import com.youcode.utils.db.Manager.HibernateManager;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import lombok.var;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -22,38 +24,48 @@ public interface JpaRepository<T> {
         return getEntityClass().getSimpleName();
     }
 
-    public default <T> T save(T t) {
+    public default T save(T t) {
         HibernateManager.openAll();
         try {
             transaction.begin();
             entityManager.persist(t);
             transaction.commit();
             return t;
+        } catch (Exception e) {
+            new ExceptionHandler(e);
+            return null;
         } finally {
             HibernateManager.closeAll();
         }
 
     }
 
-    public default <T> T update(T t) {
+
+    public default T update(T t) {
         HibernateManager.openAll();
         try {
             transaction.begin();
             entityManager.merge(t);
             transaction.commit();
             return t;
+        } catch (Exception e) {
+            new ExceptionHandler(e);
+            return null;
         } finally {
             HibernateManager.closeAll();
         }
     }
 
-    public default <T> void delete(T t) {
+    public default void delete(T t) {
         HibernateManager.openAll();
         try {
             transaction.begin();
             entityManager.remove(t);
             transaction.commit();
-        } finally {
+        }catch (Exception e) {
+            new ExceptionHandler(e);
+        }
+        finally {
             HibernateManager.closeAll();
         }
     }
@@ -62,6 +74,9 @@ public interface JpaRepository<T> {
         HibernateManager.openAll();
         try {
             return entityManager.find(getEntityClass(), id);
+        } catch (Exception e) {
+            new ExceptionHandler(e);
+            return null;
         } finally {
             HibernateManager.closeAll();
         }
@@ -72,6 +87,9 @@ public interface JpaRepository<T> {
         HibernateManager.openAll();
         try {
             return entityManager.createQuery("SELECT e FROM " + getEntityName() + " e", getEntityClass()).getResultList();
+        } catch (Exception e) {
+            new ExceptionHandler(e);
+            return null;
         } finally {
             HibernateManager.closeAll();
         }
@@ -91,7 +109,7 @@ public interface JpaRepository<T> {
             }
             return query1.getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
+            new ExceptionHandler(e);
             return Collections.emptyList();
         } finally {
             HibernateManager.closeAll();
@@ -115,10 +133,11 @@ public interface JpaRepository<T> {
             try {
                 return (T) query1.getSingleResult();
             } catch (NoResultException e) {
+                new ExceptionHandler(e);
                 Printer.warning("No result found for " + getEntityName() + " with " + columns.toString());
                 return null;
             } catch (Exception e) {
-                e.printStackTrace();
+                new ExceptionHandler(e);
                 Printer.error("Error while finding " + getEntityName() + " with " + columns.toString());
                 return null;
             }
@@ -126,7 +145,6 @@ public interface JpaRepository<T> {
             HibernateManager.closeAll();
         }
     }
-
 
 
 }

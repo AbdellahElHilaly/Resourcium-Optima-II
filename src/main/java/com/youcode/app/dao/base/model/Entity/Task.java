@@ -5,11 +5,13 @@ import com.youcode.app.dao.enums.Entity.TaskDifficulty;
 import com.youcode.app.dao.enums.Entity.TaskPriority;
 import com.youcode.app.dao.enums.Entity.TaskStatus;
 import com.youcode.app.dao.enums.Entity.TaskType;
+import com.youcode.utils.db.Manager.HibernateManager;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
-
+@Data
 @Entity
 public class Task {
 
@@ -37,5 +39,6 @@ public class Task {
     private TaskDifficulty difficulty;
     @ManyToOne
     private Department department;
+
 
 }

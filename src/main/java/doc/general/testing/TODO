@@ -1,0 +1,12 @@
+* give me a simple unit test for the employee layer in my project.
+*we need to do :
+1- test hibernate layer ( connection, mapping, query, transaction)
+2- test [entity,repository,service,controller] layers.
+
+-------------------------
+steps to do that :
+1- add important frameworks/libraries
+2- add configuration files
+3- add test classes
+4- run the test
+-------------------------

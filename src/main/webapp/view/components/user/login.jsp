@@ -31,7 +31,7 @@
                       placeholder="Phone number or email address"
                     />
                     <label class="form-label" for="form2Example11"
-                      >Username</label
+                      >employeename</label
                     >
                   </div>
 

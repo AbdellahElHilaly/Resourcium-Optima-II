@@ -38,14 +38,14 @@ class EmployeeServiceImplTest {
     }
 
 
+    @Test
+    void updateProfile() {
+        EmployeeService employeeService = new EmployeeServiceImpl();
+        Employee employee = new EmployeeBuilder("admin@gmail.com","").build();
 
+        Employee employee2 = employeeService.selectByEmployeeEmail(employee);
+        employee2.setFirstName("name updated 2");
 
-
-
-
-
-
-
-
-
+        ObjectPrinter.json(employeeService.updateProfile(employee2), "employee updated");
+    }
 }

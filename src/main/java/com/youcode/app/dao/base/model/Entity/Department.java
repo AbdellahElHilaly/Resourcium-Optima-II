@@ -1,7 +1,9 @@
 package com.youcode.app.dao.base.model.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class Department {
 
@@ -18,3 +20,4 @@ public class Department {
     private Employee headOfDepartment;
 
 }
+

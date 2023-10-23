@@ -33,12 +33,15 @@ public class Employee {
     private Department department;
     @ManyToMany
     private List<Task> tasks;
-
     @ManyToOne
     private EmployeeRole role;
     @ManyToOne
     private EmployeeStatus status;
     @ManyToOne
     private AccountStatus accountStatus;
+
+
+
+
 
 }

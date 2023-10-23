@@ -46,11 +46,6 @@ public class HibernateManager {
 
 
 
-
-
-
-
-
     private static void openTransaction() {
         transaction = entityManager.getTransaction();
         if (!transaction.isActive()) {
