@@ -1,10 +1,6 @@
 package com.youcode.libs.objects;
 
 
-
-
-
-
 import com.youcode.utils.app.Config.AppConfig;
 import com.youcode.utils.app.Enum.RunMoods;
 

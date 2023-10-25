@@ -1,12 +1,9 @@
 package com.youcode.libs.print;
 
-
-
 import com.youcode.libs.objects.ObjectHelper;
 
 import java.lang.reflect.Field;
 import java.util.List;
-
 
 public class ObjectPrinter extends Printer {
 
@@ -85,7 +82,8 @@ public class ObjectPrinter extends Printer {
         Class<?> clazz = object.getClass();
         Field[] fields = clazz.getDeclaredFields();
 
-        System.out.println(objectName + " : {");
+        printColor("green", objectName + " : {");
+        endl(1);
 
         for (Field field : fields) {
             field.setAccessible(true);
@@ -102,8 +100,12 @@ public class ObjectPrinter extends Printer {
 
             printField(fieldName, fieldValue);
         }
+        endl(1);
+        printColor("green", "}");
+    }
 
-        System.out.println("}");
+    protected static void printColor(String color, String message) {
+        print(Colors.colorsCode.get(color) + message + Colors.colorsCode.get("reset"));
     }
 
     private static <T> boolean isNull(T object) {
@@ -190,8 +192,8 @@ public class ObjectPrinter extends Printer {
         printTableBody(headers, body);
     }
 
-    public static <T> void tableList(List<T> models , String title) {
-        if (models.isEmpty())  return;
+    public static <T> void tableList(List<T> models, String title) {
+        if (models.isEmpty()) return;
 
         headers = ObjectHelper.getModelHeader(models.get(0));
         bodies = ObjectHelper.getModelsBody(models);
@@ -206,4 +208,32 @@ public class ObjectPrinter extends Printer {
 
     }
 
+    public static <T> void errorJson(T wrapper, String error) {
+        error("an error occurred : ");
+        if (isNull(wrapper)) return;
+
+        Class<?> clazz = wrapper.getClass();
+        Field[] fields = clazz.getDeclaredFields();
+
+        printColor("red",  "Error : {");
+        endl(1);
+
+        for (Field field : fields) {
+            field.setAccessible(true);
+
+            String fieldName = field.getName();
+            String fieldValue;
+
+            try {
+                Object value = field.get(wrapper);
+                fieldValue = value != null ? value.toString() : "null";
+            } catch (IllegalAccessException e) {
+                fieldValue = "N/A";
+            }
+
+            printField(fieldName, fieldValue);
+        }
+        endl(1);
+        printColor("red", "}");
+    }
 }

@@ -17,6 +17,7 @@ public class AuthFilter implements Filter {
     private final List<String> securityPages = List.of(
             "profile",
             "logout",
+            "editprofile",
             "dashboard"
     );
 

@@ -2,6 +2,6 @@
 
 <jsp:include page="/view/layout/nav.jsp" />
 
-<jsp:include page="/view/pages/landing.jsp" />
+<jsp:include page="/view/components/user/edit.jsp" />
 
 <jsp:include page="/view/layout/footer.jsp" />

@@ -8,4 +8,5 @@ import java.util.List;
 public interface EquipmentPWokPlaceService {
     public void addEquipmentPWokPlace(EquipmentWokPlaceEnum equipmentPWokPlaceEnum);
     public List<EquipmentWokPlace> getAllEquipmentPWokPlace();
+    public EquipmentWokPlace getEquipmentPWokPlaceByName(EquipmentWokPlaceEnum equipmentPWokPlaceEnum);
 }

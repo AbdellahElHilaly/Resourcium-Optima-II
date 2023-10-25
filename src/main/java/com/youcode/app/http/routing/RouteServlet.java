@@ -22,6 +22,7 @@ public class RouteServlet extends HttpServlet {
         pageMappings.put("dashboard", "/view/pages/dashboard.jsp");
         pageMappings.put("login", "/view/pages/login.jsp");
         pageMappings.put("register", "/view/pages/register.jsp");
+        pageMappings.put("editprofile", "/view/pages/editprofile.jsp");
         pageMappings.put("profile", "/view/pages/profile.jsp");
         pageMappings.put("200", "/view/pages/200.jsp");
         pageMappings.put("500", "/view/pages/500.jsp");

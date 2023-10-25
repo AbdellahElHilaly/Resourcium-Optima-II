@@ -3,6 +3,8 @@ package com.youcode.app.dao.base.model.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 public class Department {
@@ -18,6 +20,10 @@ public class Department {
 
     @OneToOne
     private Employee headOfDepartment;
+
+    @OneToMany
+    private List<Reservation> reservations;
+
 
 }
 

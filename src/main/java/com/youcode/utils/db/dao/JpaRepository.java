@@ -1,11 +1,9 @@
 package com.youcode.utils.db.dao;
 
 import com.youcode.exception.handler.ExceptionHandler;
-import com.youcode.libs.print.Printer;
 import com.youcode.utils.db.Manager.HibernateManager;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.NoResultException;
 import lombok.var;
 
 
@@ -62,10 +60,9 @@ public interface JpaRepository<T> {
             transaction.begin();
             entityManager.remove(t);
             transaction.commit();
-        }catch (Exception e) {
+        } catch (Exception e) {
             new ExceptionHandler(e);
-        }
-        finally {
+        } finally {
             HibernateManager.closeAll();
         }
     }
@@ -132,13 +129,8 @@ public interface JpaRepository<T> {
 
             try {
                 return (T) query1.getSingleResult();
-            } catch (NoResultException e) {
+            }  catch (Exception e) {
                 new ExceptionHandler(e);
-                Printer.warning("No result found for " + getEntityName() + " with " + columns.toString());
-                return null;
-            } catch (Exception e) {
-                new ExceptionHandler(e);
-                Printer.error("Error while finding " + getEntityName() + " with " + columns.toString());
                 return null;
             }
         } finally {

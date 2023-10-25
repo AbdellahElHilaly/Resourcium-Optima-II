@@ -4,9 +4,14 @@ import com.youcode.app.dao.enums.Entity.EquipmentHealth;
 import com.youcode.app.dao.enums.Entity.EquipmentStatus;
 import com.youcode.app.dao.enums.Entity.EquipmentWokPlace;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 public class Equipment {
@@ -19,7 +24,6 @@ public class Equipment {
     private Date purchaseDate;
     private Date serviceStartDate;
 
-    //TODO : add it in the builder for generate code automatically
     @Column(unique = true)
     private String code;
     private Integer quantity;

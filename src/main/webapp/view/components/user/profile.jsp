@@ -24,7 +24,9 @@ import="com.youcode.app.dao.base.model.Entity.Employee" %> <% Employee employee
                 <%= employee.getFirstName() + " " + employee.getLastName() %>
               </h5>
               <p><%= employee.getRole().getName() %></p>
-              <i class="far fa-edit mb-5"></i>
+              <a href="Router?page=editprofile" class="btn btn-outline-light btn-sm"
+              <i class="fas fa-edit"></i> Edit Profile
+              </a>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">

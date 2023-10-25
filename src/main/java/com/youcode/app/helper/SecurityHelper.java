@@ -3,6 +3,7 @@ package com.youcode.app.helper;
 import com.youcode.app.dao.base.model.Entity.Employee;
 import com.youcode.libs.print.ObjectPrinter;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class SecurityHelper {
@@ -30,4 +31,6 @@ public class SecurityHelper {
     public static void logout(HttpServletRequest req) {
         req.getSession().removeAttribute(" logInEmployee");
     }
+
+
 }

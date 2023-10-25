@@ -9,6 +9,5 @@ public class AppConfig {
     public static final String APP_VERSION = "1.0.0";
     public static final String APP_AUTHOR = "ABDELLAH EL HILALY";
     public static final RunMoods RUN_MOOD = RunMoods.Production;
-
 }
 
